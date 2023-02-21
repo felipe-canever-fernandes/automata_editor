@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Automaton</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>292oaybr3enc5</unique-id>
+    <saved-with-version>24400</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="tint">Tint</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>1600</width>
+        <height>900</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Mouse" sid="4939123413559151">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Function" sid="1919407455989413">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="state" sid="9606640611598192">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="State Number" name="id" sid="4140365247446123" type="number" />
+                <instance-variable name="selected" sid="3124896819460023" type="boolean" />
+                <instance-variable name="initial" sid="782930568130751" type="boolean" />
+                <instance-variable name="final" sid="5444400793311547" type="boolean" />
+            </instance-variables>
+            <effects>
+                <effect-type name="Tint">
+                    <effect id="tint" />
+                </effect-type>
+            </effects>
+            <container>
+                <type>state</type>
+                <type>state_label</type>
+                <type>final</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3738863924907847" speed="5">
+                    <frame duration="1" hotspotX="0.507246" hotspotY="0.507246" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\state.png">
+                        <collision-poly>
+                            <point x="0.153846" y="0.151515" />
+                            <point x="0.492308" y="0.0151515" />
+                            <point x="0.846154" y="0.151515" />
+                            <point x="1" y="0.5" />
+                            <point x="0.846154" y="0.848485" />
+                            <point x="0.492308" y="1" />
+                            <point x="0.153846" y="0.848485" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="state_label" sid="1011614599791671">
+            <plugin id="Text" />
+            <container>
+                <type>state</type>
+                <type>state_label</type>
+                <type>final</type>
+            </container>
+        </object-type>
+        <object-type name="toolbar" sid="8238270994432648">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="btn_state" sid="9695989338845061">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="Tint">
+                    <effect id="tint" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7635165197600308" speed="5">
+                    <frame duration="1" hotspotX="0.507692" hotspotY="0.507692" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\btn_state.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bound" sid="2264063558554532">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Timer" sid="8213276148338164">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Warning" pingpong="0" repeatcount="1" repeatto="0" sid="2376556542458207" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\bound.png">
+                        <collision-poly>
+                            <point x="0.5" y="0" />
+                            <point x="0.852713" y="0.147287" />
+                            <point x="1" y="0.483437" />
+                            <point x="0.871134" y="0.850515" />
+                            <point x="0.5" y="0.996124" />
+                            <point x="0.147287" y="0.852713" />
+                            <point x="0" y="0.5" />
+                            <point x="0.115979" y="0.152062" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Denied" pingpong="0" repeatcount="1" repeatto="0" sid="5585719008134668" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\bound.png">
+                        <collision-poly>
+                            <point x="0.13402" y="0.139176" />
+                            <point x="0.494845" y="0.00515464" />
+                            <point x="0.845361" y="0.118556" />
+                            <point x="1" y="0.469072" />
+                            <point x="0.878866" y="0.850515" />
+                            <point x="0.503866" y="0.997422" />
+                            <point x="0.149485" y="0.850515" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="2494355801292773">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="arc" sid="3406317646937258">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="start" sid="1057511425973666" type="number" />
+                <instance-variable name="end" sid="4093423907210399" type="number" />
+                <instance-variable name="symbols" sid="341658140540594" type="string" />
+                <instance-variable name="empty" sid="806931361191591" type="boolean" />
+            </instance-variables>
+            <container>
+                <type>arc</type>
+                <type>arc_label_frame</type>
+                <type>arc_label</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="819000496763906" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.529412" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\arch.png">
+                        <image-point name="label" x="0.500971" y="0.529412" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Bent" pingpong="0" repeatcount="1" repeatto="0" sid="1962170478460171" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\arch_bent.png">
+                        <image-point name="label" x="0.503788" y="0.0512821" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Self" pingpong="0" repeatcount="1" repeatto="0" sid="2746721622027605" speed="5">
+                    <frame duration="1" hotspotX="0.513889" hotspotY="0.681159" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\arc_self.png">
+                        <image-point name="label" x="0.5" y="0.0434783" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="initial" sid="1346024338376029">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="950502844934237" speed="5">
+                    <frame duration="1" hotspotX="1" hotspotY="0.529412" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\initial.png">
+                        <collision-poly>
+                            <point x="0.0588235" y="0.0588235" />
+                            <point x="0.470588" y="0.235294" />
+                            <point x="0.647059" y="0.352941" />
+                            <point x="0.941176" y="0.470588" />
+                            <point x="0.470588" y="0.764706" />
+                            <point x="0.0588235" y="0.941176" />
+                            <point x="0" y="0.470588" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="final" sid="5550278199126706">
+            <plugin id="Sprite" />
+            <container>
+                <type>state</type>
+                <type>state_label</type>
+                <type>final</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4401369490121612" speed="5">
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.5" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\final.png">
+                        <collision-poly>
+                            <point x="0.489796" y="0.02" />
+                            <point x="1" y="0.5" />
+                            <point x="0.857143" y="0.86" />
+                            <point x="0.489796" y="1" />
+                            <point x="0.142857" y="0.86" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="debug" sid="1788010768164529">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="btn_arc" sid="9060807197985281">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7152868336398724" speed="5">
+                    <frame duration="1" hotspotX="0.507692" hotspotY="0.5" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\btn_arc.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="0" y="0" />
+                            <point x="0" y="1" />
+                            <point x="1" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="btn_select" sid="6392212336922368">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6782131312858678" speed="5">
+                    <frame duration="1" hotspotX="0.507692" hotspotY="0.507692" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\btn_select.png">
+                        <collision-poly>
+                            <point x="0.0606061" y="0.0606061" />
+                            <point x="0.5" y="0" />
+                            <point x="0.939394" y="0.0606061" />
+                            <point x="0.984848" y="0.5" />
+                            <point x="0.939394" y="0.939394" />
+                            <point x="0.5" y="1" />
+                            <point x="0.0606061" y="0.939394" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="btn_delete" sid="7624131797137258">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8191722041451904" speed="5">
+                    <frame duration="1" hotspotX="0.507692" hotspotY="0.507692" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\btn_delete.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="0" y="0" />
+                            <point x="0" y="1" />
+                            <point x="1" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="txt_symbol" sid="4838195980044199">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="label_symbols" sid="2539026567865733">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="btn_symbols" sid="8055306568932006">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="arc_label" sid="5125866223989181">
+            <plugin id="Text" />
+            <container>
+                <type>arc</type>
+                <type>arc_label_frame</type>
+                <type>arc_label</type>
+            </container>
+        </object-type>
+        <object-type name="btn_play" sid="783398014337061">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="Tint">
+                    <effect id="tint" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8423385897921493" speed="5">
+                    <frame duration="1" hotspotX="0.507692" hotspotY="0.507692" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\btn_play.png">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="0" y="0" />
+                            <point x="0" y="1" />
+                            <point x="1" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="alphabet" sid="9123636811667008">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="arc_label_frame" sid="206385065953933">
+            <plugin id="Sprite" />
+            <container>
+                <type>arc</type>
+                <type>arc_label_frame</type>
+                <type>arc_label</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="561092527265889" speed="5">
+                    <frame duration="1" hotspotX="0.507692" hotspotY="0.507692" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\frame.png">
+                        <collision-poly>
+                            <point x="0.0615385" y="0.0615385" />
+                            <point x="0.492308" y="0" />
+                            <point x="0.938462" y="0.0615385" />
+                            <point x="1" y="0.492308" />
+                            <point x="0.938462" y="0.938462" />
+                            <point x="0.492308" y="1" />
+                            <point x="0.0615385" y="0.938462" />
+                            <point x="0" y="0.492308" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="alphabet_label" sid="786723956615535">
+            <plugin id="Text" />
+        </object-type>
+        <object-type global="1" name="current_states" sid="456928319031013">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="txt_string" sid="443925260640124">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type global="1" name="current_states_new" sid="647393530018935">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="string_label" sid="113180464562249">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="check_empty" sid="132619646167944">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Off" pingpong="0" repeatcount="1" repeatto="0" sid="883847926238358" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\check_0.png">
+                        <collision-poly>
+                            <point x="0.15625" y="0.15625" />
+                            <point x="0.5" y="0.125" />
+                            <point x="0.875" y="0.125" />
+                            <point x="0.90625" y="0.5" />
+                            <point x="0.90625" y="0.90625" />
+                            <point x="0.5" y="0.90625" />
+                            <point x="0.15625" y="0.84375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Over" pingpong="0" repeatcount="1" repeatto="0" sid="613986159713460" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\check_1.png">
+                        <collision-poly>
+                            <point x="0.15625" y="0.15625" />
+                            <point x="0.5" y="0.125" />
+                            <point x="0.875" y="0.15625" />
+                            <point x="0.90625" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="0.90625" />
+                            <point x="0.15625" y="0.875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="On" pingpong="0" repeatcount="1" repeatto="0" sid="909876400695920" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\felip\OneDrive\Documentos\Construct\Automaton\source\check_2.png">
+                        <collision-poly>
+                            <point x="0.15625" y="0.15625" />
+                            <point x="0.5" y="0.125" />
+                            <point x="0.90625" y="0.125" />
+                            <point x="0.90625" y="0.90625" />
+                            <point x="0.5" y="0.90625" />
+                            <point x="0.15625" y="0.875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="label_empty" sid="960734141804118">
+            <plugin id="Text" />
+        </object-type>
+        <object-type global="1" name="closure" sid="881505098357281">
+            <plugin id="Arr" />
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="Button" plugin-id="Sprite" sid="2557828605965375">
+            <members>
+                <member>btn_arc</member>
+                <member>btn_delete</member>
+                <member>btn_select</member>
+                <member>btn_state</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="clicked" sid="9181919404630109" type="boolean" />
+            </instance-variables>
+            <effects>
+                <effect-type name="Tint2">
+                    <effect id="tint" />
+                </effect-type>
+            </effects>
+        </family>
+        <family name="Deletable" plugin-id="Sprite" sid="702997641450499">
+            <members>
+                <member>arc_label_frame</member>
+                <member>state</member>
+            </members>
+        </family>
+        <family name="Checkbox" plugin-id="Sprite" sid="170852364429196">
+            <members>
+                <member>check_empty</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="checked" sid="655922365392947" type="boolean" />
+            </instance-variables>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="0" />
+        <global-instance type="Function" uid="1" />
+        <global-instance type="Keyboard" uid="7" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

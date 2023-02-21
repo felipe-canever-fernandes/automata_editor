@@ -1,0 +1,1346 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="mouse_delta_x" sid="8815367415353955" static="0" type="number">0</variable>
+        <variable constant="0" name="mouse_delta_y" sid="2990418280778775" static="0" type="number">0</variable>
+        <variable constant="0" name="mouse_x_old" sid="7229452696617406" static="0" type="number">0</variable>
+        <variable constant="0" name="mouse_y_old" sid="3088386246116023" static="0" type="number">0</variable>
+        <variable constant="0" name="arc_id" sid="8897154804772009" static="0" type="number">-1</variable>
+        <variable constant="0" name="previous" sid="7550683367700336" static="0" type="number">-1</variable>
+        <variable constant="0" name="current" sid="3311489864261483" static="0" type="number">-1</variable>
+        <event-group description="" sid="7024410742040984" title="UI">
+            <sub-events>
+                <event-block sid="5084902935685206">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6040101893825182" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="1280263927252823" type="debug">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="202696695822331" type="System">
+                            <param id="0" name="Layer">&quot;Dialog&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3876689086006335">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="2184418517546947" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4080428855223067" type="System">
+                            <param id="0" name="Variable">mouse_delta_x</param>
+                            <param id="1" name="Value">Mouse.X - mouse_x_old</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5839389508663416" type="System">
+                            <param id="0" name="Variable">mouse_delta_y</param>
+                            <param id="1" name="Value">Mouse.Y - mouse_y_old</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="4447136807685498" title="Bound">
+                    <sub-events>
+                        <event-block sid="2562814623115855">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="2443095508745541" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="8466912946946893" type="bound">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3496862851683402">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="4586266357074218" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="9798500247323504" type="bound">
+                                    <param id="0" name="X">Mouse.X</param>
+                                    <param id="1" name="Y">Mouse.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7299576153857112">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Mouse button is down" sid="5405022656652407" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="4646133263910769">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="3860795775030998" type="bound">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="9074514867175924" type="bound">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6117436112028172">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="7146898083685691" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="5087313655539593" type="bound">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="7311491067210132">
+                            <conditions>
+                                <condition id="0" name="On function" sid="9504847146027457" type="Function">
+                                    <param id="0" name="Name">&quot;bound.show&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Timer" id="0" name="Start timer" sid="4272262013778589" type="bound">
+                                    <param id="0" name="Duration">Function.Param(0)</param>
+                                    <param id="1" name="Type">0</param>
+                                    <param id="2" name="Tag">&quot;hide&quot;</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="4946581573538503" type="bound">
+                                    <param id="0" name="Animation">&quot;Denied&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="3720145332702402" type="bound">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1147788196240164">
+                            <conditions>
+                                <condition behavior="Timer" id="0" name="On timer" sid="9221508558322988" type="bound">
+                                    <param id="0" name="Tag">&quot;hide&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="7675122139277262" type="bound">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="4276790401958615" type="bound">
+                                    <param id="0" name="Animation">&quot;Warning&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3742999763712427">
+                            <conditions>
+                                <condition id="0" name="On function" sid="2782411083481109" type="Function">
+                                    <param id="0" name="Name">&quot;bound.overlapping&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set return value" sid="9664727543378228" type="Function">
+                                    <param id="0" name="Value">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9907876464749643">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="3805670030971908" type="System">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="768426476882214">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="1857890110325558" type="System">
+                                                    <param id="0" name="First value">state.IID</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">function.Param(0)</param>
+                                                </condition>
+                                                <condition id="1" name="Is overlapping another object" sid="1176974168459902" type="bound">
+                                                    <param id="0" name="Object">state</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="1" name="Set return value" sid="5203080651911066" type="Function">
+                                                    <param id="0" name="Value">1</param>
+                                                </action>
+                                                <action id="-24" name="Stop loop" sid="5331205976099125" type="System" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="2364626710779823" title="Toolbar">
+                    <sub-events>
+                        <variable constant="0" name="id" sid="4876091821796445" static="0" type="number">-1</variable>
+                        <event-block sid="7110585878317911">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="352760571359656" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">Button</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="1744833537061152" type="Button">
+                                    <param id="0" name="Instance variable">clicked</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4835398365903849" type="System">
+                                    <param id="0" name="Variable">id</param>
+                                    <param id="1" name="Value">Button.UID</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="2323740054453482">
+                                    <conditions>
+                                        <condition id="-19" name="Pick all" sid="2298730345883345" type="System">
+                                            <param id="0" name="Object">Button</param>
+                                        </condition>
+                                        <condition id="-11" name="For Each" sid="4891571090763112" type="System">
+                                            <param id="0" name="Object">Button</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="1883159236144872">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="7367737526219189" type="System">
+                                                    <param id="0" name="First value">Button.UID</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Second value">id</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="7920070598072062" type="Button">
+                                                    <param id="0" name="Instance variable">clicked</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="8796730673051439">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9031206284022365" type="Button">
+                                    <param id="0" name="Instance variable">clicked</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="3889688564081876">
+                                    <conditions>
+                                        <condition id="7" name="Cursor is over object" sid="268369286355726" type="Mouse">
+                                            <param id="0" name="Object">Button</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9278755486293668" type="Button">
+                                            <param id="0" name="Animation">&quot;Hover&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6103462815047461">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="101524319675812" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9266871129573583" type="Button">
+                                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="9519221304092311">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="8514999495358615" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">Deletable</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="8936903969896332" type="btn_delete">
+                                    <param id="0" name="Instance variable">clicked</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="2211487864306784" type="Deletable" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="4919503075316236" title="Dialog">
+                    <sub-events>
+                        <event-block sid="9879465699594569">
+                            <conditions>
+                                <condition id="0" name="On function" sid="9867398059419249" type="Function">
+                                    <param id="0" name="Name">&quot;ui.showDialog&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set layer visible" sid="2902705119224817" type="System">
+                                    <param id="0" name="Layer">&quot;Dialog&quot;</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="9990889752950922" type="System">
+                                    <param id="0" name="Layer">&quot;UI&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="3635505282279233" type="System">
+                                    <param id="0" name="Layer">&quot;States&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="6300302944131389" type="System">
+                                    <param id="0" name="Layer">&quot;Arcs&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="2830236239164319" type="txt_symbol">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                </action>
+                                <action id="6" name="Set focused" sid="9166879002300255" type="txt_symbol" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="575227699602821">
+                            <conditions>
+                                <condition id="0" name="On function" sid="7042356047548178" type="Function">
+                                    <param id="0" name="Name">&quot;ui.hideDialog&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set layer visible" sid="8735556120862778" type="System">
+                                    <param id="0" name="Layer">&quot;Dialog&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="6540497422393625" type="System">
+                                    <param id="0" name="Layer">&quot;UI&quot;</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="745521946336344" type="System">
+                                    <param id="0" name="Layer">&quot;States&quot;</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="2363925286444001" type="System">
+                                    <param id="0" name="Layer">&quot;Arcs&quot;</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="101859408384105">
+                            <conditions>
+                                <condition id="0" name="On clicked" sid="2961302420988503" type="btn_symbols" />
+                                <condition id="0" inverted="1" name="Compare text" sid="4484634190582695" type="txt_symbol">
+                                    <param id="0" name="Text">&quot;&quot;</param>
+                                    <param id="1" name="Case">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="9045955834472756" type="Function">
+                                    <param id="0" name="Name">&quot;ui.hideDialog&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="8342442377514618">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="1118086843376852" type="System">
+                                            <param id="0" name="Object">arc</param>
+                                        </condition>
+                                        <condition id="-8" name="Compare two values" sid="4657040700773296" type="System">
+                                            <param id="0" name="First value">arc.IID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">arc_id</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="859879786785609" type="arc">
+                                            <param id="0" name="Instance variable">symbols</param>
+                                            <param id="1" name="Value">txt_symbol.Text</param>
+                                        </action>
+                                        <action id="-24" name="Stop loop" sid="3676777637336742" type="System" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8069286010206552" title="State">
+            <sub-events>
+                <event-block sid="8948037551170913">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="2973234596266087" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="8862168090355993" type="state" />
+                    </actions>
+                </event-block>
+                <event-block sid="8465208941405233">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="9791126672379347" type="System">
+                            <param id="0" name="First value">state.Count</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="4201200220029269" type="Function">
+                            <param id="0" name="Name">&quot;state.setInitial&quot;</param>
+                            <param id="1" name="Parameter {n}">state.IID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" sid="8600553405358123" title="State: Label">
+                    <sub-events>
+                        <event-block sid="3327145239797671">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="3855390981325185" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="6187639608646228" type="state_label">
+                                    <param id="0" name="Object">state</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="1853013748320252" type="state_label">
+                                    <param id="0" name="Text">state.IID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="5186228456010828" title="State: Creation">
+                    <sub-events>
+                        <event-block sid="8933649405879482">
+                            <conditions>
+                                <condition id="0" name="On click" sid="3989503282290761" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                </condition>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="7733393982282192" type="Mouse">
+                                    <param id="0" name="Object">toolbar</param>
+                                </condition>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="8239674404786357" type="Mouse">
+                                    <param id="0" name="Object">state</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1184770863004478" type="btn_state">
+                                    <param id="0" name="Instance variable">clicked</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6623442078433418">
+                                    <conditions>
+                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="2538599413646028" type="bound">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="8284764215398941" type="System">
+                                            <param id="0" name="Object to create">state</param>
+                                            <param id="1" name="Layer">&quot;States&quot;</param>
+                                            <param id="2" name="X">Mouse.X</param>
+                                            <param id="3" name="Y">Mouse.Y</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="3692185647608795" type="state">
+                                            <param id="0" name="Instance variable">selected</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="6422051811052652" type="state">
+                                            <param id="0" name="Instance variable">initial</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="2506458873511487" type="state">
+                                            <param id="0" name="Instance variable">final</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="2277945199513182" type="Function">
+                                            <param id="0" name="Name">&quot;state.select&quot;</param>
+                                            <param id="1" name="Parameter {n}">state.IID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9289188670619727">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="7096422273203616" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="8723692479845824" type="Function">
+                                            <param id="0" name="Name">&quot;bound.show&quot;</param>
+                                            <param id="1" name="Parameter {n}">0.1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="1687579561825297" title="State: Selection">
+                    <sub-events>
+                        <event-block sid="3833005994986821">
+                            <conditions>
+                                <condition id="0" name="On function" sid="1634355222994977" type="Function">
+                                    <param id="0" name="Name">&quot;state.select&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6919409328262231">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="4108403827791542" type="System">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="4325552464656696">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="7397958158553853" type="System">
+                                                    <param id="0" name="First value">state.IID</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">Function.Param(0)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="5911787160109511" type="state">
+                                                    <param id="0" name="Instance variable">selected</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="9564479028489513" type="System">
+                                                    <param id="0" name="Variable">previous</param>
+                                                    <param id="1" name="Value">current</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="2427364362753408" type="System">
+                                                    <param id="0" name="Variable">current</param>
+                                                    <param id="1" name="Value">state.IID</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1079984773377989">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7363524203701228" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="1683291975417858" type="state">
+                                                    <param id="0" name="Instance variable">selected</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="2456059221334707">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="9583690757071188" type="Function">
+                                            <param id="0" name="Index">0</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">-1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="519123827012445" type="System">
+                                            <param id="0" name="Variable">previous</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="8489384574050448" type="System">
+                                            <param id="0" name="Variable">current</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="8548270780258546">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="4962619448135296" type="System">
+                                    <param id="0" name="Object">state</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5846358809677797">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="4603960766569961" type="state">
+                                            <param id="0" name="Instance variable">selected</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-28" name="Set effect parameter" sid="7243411493865883" type="state">
+                                            <param id="0" name="Effect">&quot;Tint&quot;</param>
+                                            <param id="1" name="Parameter index">2</param>
+                                            <param id="2" name="Value">80</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1638524582316371">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="7489561040869641" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-28" name="Set effect parameter" sid="8597008153662272" type="state">
+                                            <param id="0" name="Effect">&quot;Tint&quot;</param>
+                                            <param id="1" name="Parameter index">2</param>
+                                            <param id="2" name="Value">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3963874540538402">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="6944623071228573" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">state</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="4711452361020926" type="Function">
+                                    <param id="0" name="Name">&quot;state.select&quot;</param>
+                                    <param id="1" name="Parameter {n}">state.IID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="2919082234270745">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="2523112150554164" type="Keyboard">
+                                    <param id="0" name="Key">27 (Esc)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="5611352836210609" type="Function">
+                                    <param id="0" name="Name">&quot;state.select&quot;</param>
+                                    <param id="1" name="Parameter {n}">-1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7348429657166208" type="System">
+                                    <param id="0" name="Variable">current</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1282758874655704">
+                            <conditions>
+                                <condition id="0" name="On click" sid="8861377334387484" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4817154101828252" type="btn_state">
+                                    <param id="0" name="Instance variable">clicked</param>
+                                </condition>
+                                <condition id="7" inverted="1" name="Cursor is over object" sid="777291308120442" type="Mouse">
+                                    <param id="0" name="Object">state</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="6355709658726436" type="Function">
+                                    <param id="0" name="Name">&quot;state.select&quot;</param>
+                                    <param id="1" name="Parameter {n}">-1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="9001233827706325" type="System">
+                                    <param id="0" name="Variable">current</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="2286811973850737" title="State: Movement">
+                    <sub-events>
+                        <variable constant="0" name="overlapping" sid="7931589083129046" static="0" type="number">0</variable>
+                        <event-block sid="7939168096735032">
+                            <conditions>
+                                <condition id="2" name="Mouse button is down" sid="7545762467144164" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                </condition>
+                                <condition id="7" name="Cursor is over object" sid="8123222405219496" type="Mouse">
+                                    <param id="0" name="Object">state</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1213208394943869" type="state">
+                                    <param id="0" name="Instance variable">selected</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="1790812798663646" type="System">
+                                    <param id="0" name="First value">Mouse.X</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">state.Width / 2</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="4644417585885473" type="System">
+                                    <param id="0" name="First value">Mouse.X</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">LayoutWidth - state.Width / 2</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="9312938140261799" type="System">
+                                    <param id="0" name="First value">Mouse.Y</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">state.Height / 2</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="9844145161620015" type="System">
+                                    <param id="0" name="First value">Mouse.Y</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">LayoutHeight - state.Height / 2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="9159455134885254" type="bound">
+                                    <param id="0" name="X">state.X  + mouse_delta_x</param>
+                                    <param id="1" name="Y">state.Y  + mouse_delta_y</param>
+                                </action>
+                                <action id="0" name="Call function" sid="7635986338693521" type="Function">
+                                    <param id="0" name="Name">&quot;bound.overlapping&quot;</param>
+                                    <param id="1" name="Parameter {n}">state.IID</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="767197964195834" type="System">
+                                    <param id="0" name="Variable">overlapping</param>
+                                    <param id="1" name="Value">Function.ReturnValue</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="9294917901568321">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="683172688103305" type="System">
+                                            <param id="0" name="Variable">overlapping</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="2222854860476553" type="state">
+                                            <param id="0" name="X">state.X + mouse_delta_x</param>
+                                            <param id="1" name="Y">state.Y + mouse_delta_y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9030239577469515">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="1154259257852583" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="5986961131665788" type="Function">
+                                            <param id="0" name="Name">&quot;bound.show&quot;</param>
+                                            <param id="1" name="Parameter {n}">0.1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="9207447014017139" title="State: Deletion">
+                    <sub-events>
+                        <event-block sid="8337126773419367">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="9799077425452854" type="Keyboard">
+                                    <param id="0" name="Key">46 (Delete)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1862634296412474">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="8422127984164518" type="System">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="53713175227993">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="897984874340044" type="state">
+                                                    <param id="0" name="Instance variable">selected</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="877420550730181" type="state" />
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="6326021293984944">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="1063137145570387" type="state" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5926778838534933">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="5148244142645491" type="System">
+                                            <param id="0" name="Object">arc</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block any="1" sid="7904459358542405">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="6466207069611607" type="arc">
+                                                    <param id="0" name="Instance variable">start</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">state.IID</param>
+                                                </condition>
+                                                <condition id="-7" name="Compare instance variable" sid="5840568337578746" type="arc">
+                                                    <param id="0" name="Instance variable">end</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">state.IID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Destroy" sid="9477208100468461" type="arc" />
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1947260644919765">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="4211272856236924" type="arc">
+                                                    <param id="0" name="Instance variable">start</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">state.IID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="2373058505679169" type="arc">
+                                                    <param id="0" name="Instance variable">start</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="9613927867376099">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2459746339546379" type="arc">
+                                                    <param id="0" name="Instance variable">end</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">state.IID</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="2315582946398051" type="arc">
+                                                    <param id="0" name="Instance variable">end</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="7621850021319441" title="State: Flags">
+                    <sub-events>
+                        <event-group description="" sid="911621472755698" title="Initial">
+                            <sub-events>
+                                <event-block sid="9480879244829496">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="8853941165600451" type="Function">
+                                            <param id="0" name="Name">&quot;state.setInitial&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="4759226410389301">
+                                            <conditions>
+                                                <condition id="-11" name="For Each" sid="9031708397038332" type="System">
+                                                    <param id="0" name="Object">state</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="9413297761330697">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="6096320699536155" type="System">
+                                                            <param id="0" name="First value">state.IID</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">Function.Param(0)</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="7228282291294006" type="state">
+                                                            <param id="0" name="Instance variable">initial</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="7165056642192886">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="4067599315395241" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-13" name="Set boolean" sid="7364538021959461" type="state">
+                                                            <param id="0" name="Instance variable">initial</param>
+                                                            <param id="1" name="Value">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="448092798444264">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="5640213022159602" type="System">
+                                            <param id="0" name="First value">state.Count</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="2406334235268193" type="initial">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3086399420379571">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="2083169748688725" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="5961811705257349" type="initial">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4164632665570231">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="8750428896765396" type="System">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="5957217103435445">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="3008600320727496" type="state">
+                                                    <param id="0" name="Instance variable">initial</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Set position" sid="730496086935053" type="initial">
+                                                    <param id="0" name="X">state.X - state.Width / 2</param>
+                                                    <param id="1" name="Y">state.Y</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="8337126773419367">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="9799077425452854" type="Keyboard">
+                                            <param id="0" name="Key">73 (I)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="1862634296412474">
+                                            <conditions>
+                                                <condition id="-11" name="For Each" sid="8422127984164518" type="System">
+                                                    <param id="0" name="Object">state</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="53713175227993">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="897984874340044" type="state">
+                                                            <param id="0" name="Instance variable">selected</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="9150777182417009" type="Function">
+                                                            <param id="0" name="Name">&quot;state.setInitial&quot;</param>
+                                                            <param id="1" name="Parameter {n}">state.IID</param>
+                                                        </action>
+                                                        <action id="-24" name="Stop loop" sid="2229354167526833" type="System" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="4981015022129813" title="Final">
+                            <sub-events>
+                                <event-block sid="5199045805977064">
+                                    <conditions>
+                                        <condition id="-1" name="Every tick" sid="1968931047983571" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set position to another object" sid="1670850102102129" type="final">
+                                            <param id="0" name="Object">state</param>
+                                            <param id="1" name="Image point (optional)">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1982425354089799">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="4104099217869798" type="System">
+                                            <param id="0" name="Object">state</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="5389079706216686">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="4373178125850162" type="state">
+                                                    <param id="0" name="Instance variable">final</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="4360886191100423" type="final">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="90100640515772">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="9608405226517944" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-15" name="Set visible" sid="8760799818947173" type="final">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="7488213295266323">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="4816079360458653" type="Keyboard">
+                                            <param id="0" name="Key">70 (F)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="6657091639801415">
+                                            <conditions>
+                                                <condition id="-11" name="For Each" sid="9424583159324409" type="System">
+                                                    <param id="0" name="Object">state</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="5765580467629706">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="2417480736099899" type="state">
+                                                            <param id="0" name="Instance variable">selected</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-14" name="Toggle boolean" sid="3262415607304981" type="state">
+                                                            <param id="0" name="Instance variable">final</param>
+                                                        </action>
+                                                        <action id="-24" name="Stop loop" sid="1223478575547252" type="System" />
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2256650056565303" title="Arc">
+            <sub-events>
+                <event-block sid="2295322007939233">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="6471644915901886" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="6977485290280492" type="arc" />
+                    </actions>
+                </event-block>
+                <event-block sid="9965386857994768">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="6993533905961064" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">btn_arc</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="887667140825907" type="Function">
+                            <param id="0" name="Name">&quot;state.select&quot;</param>
+                            <param id="1" name="Parameter {n}">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3599010936356722">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2041600102879471" type="Function">
+                            <param id="0" name="Name">&quot;arc.exists&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="exists" sid="1123103528550364" static="0" type="number">0</variable>
+                        <event-block sid="3678469215664372">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="2077131567056498" type="System">
+                                    <param id="0" name="Object">arc</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="2685948400104204" type="arc">
+                                    <param id="0" name="Instance variable">start</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Function.Param(0)</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="1333885538490404" type="arc">
+                                    <param id="0" name="Instance variable">end</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="5114419434815165" type="System">
+                                    <param id="0" name="Variable">exists</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-24" name="Stop loop" sid="5162540978922457" type="System" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="8254011512479229">
+                            <conditions />
+                            <actions>
+                                <action id="1" name="Set return value" sid="792481813769339" type="Function">
+                                    <param id="0" name="Value">exists</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5856730681198602">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="9433970035805441" type="System">
+                            <param id="0" name="Object">arc</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="start_x" sid="8442103374721271" static="0" type="number">-1</variable>
+                        <variable constant="0" name="start_y" sid="6051423577570329" static="0" type="number">-1</variable>
+                        <event-block sid="2790849984073844">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="734725520166377" type="System">
+                                    <param id="0" name="Object">state</param>
+                                    <param id="1" name="Expression">state.IID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">arc.start</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4444498246296005" type="System">
+                                    <param id="0" name="Variable">start_x</param>
+                                    <param id="1" name="Value">state.X</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8931747224984343" type="System">
+                                    <param id="0" name="Variable">start_y</param>
+                                    <param id="1" name="Value">state.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6591243539995881">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="39898041752457" type="arc">
+                                    <param id="0" name="Instance variable">start</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">arc.end</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="4074414674007048">
+                                    <conditions>
+                                        <condition id="-33" name="Pick by comparison" sid="8675017791235896" type="System">
+                                            <param id="0" name="Object">state</param>
+                                            <param id="1" name="Expression">state.IID</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">arc.end</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="717294799999163" type="arc">
+                                            <param id="0" name="X">start_x</param>
+                                            <param id="1" name="Y">start_y</param>
+                                        </action>
+                                        <action id="-22" name="Set angle toward position" sid="2355574086654715" type="arc">
+                                            <param id="0" name="X">state.X</param>
+                                            <param id="1" name="Y">state.Y</param>
+                                        </action>
+                                        <action id="-5" name="Set width" sid="3500198849753767" type="arc">
+                                            <param id="0" name="Width">distance(start_x, start_y, state.X, state.Y)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="9479810008758384">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3916537605588103" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="7876934095841539" type="arc">
+                                    <param id="0" name="X">start_x</param>
+                                    <param id="1" name="Y">start_y - (state.Height / 2) / 2</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="9134705889448518" type="arc">
+                                    <param id="0" name="Width">state.Width * 1.2</param>
+                                    <param id="1" name="Height">state.Height * 1.2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-group description="" sid="4594912009602682" title="Arc: Creation">
+                    <sub-events>
+                        <variable constant="0" name="exists" sid="4691419985754313" static="0" type="number">0</variable>
+                        <event-block sid="8628648541300548">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="8191547252753935" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">state</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="6892609765897947" type="btn_arc">
+                                    <param id="0" name="Instance variable">clicked</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="3623800351418715" type="Function">
+                                    <param id="0" name="Name">&quot;arc.exists&quot;</param>
+                                    <param id="1" name="Parameter {n}">previous{###}current</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4334711029133917" type="System">
+                                    <param id="0" name="Variable">exists</param>
+                                    <param id="1" name="Value">Function.ReturnValue</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="6288494213840116">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3550245394771752" type="System">
+                                            <param id="0" name="Variable">previous</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="5811995345846023" type="System">
+                                            <param id="0" name="Variable">exists</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="7190668473832761" type="System">
+                                            <param id="0" name="Object to create">arc</param>
+                                            <param id="1" name="Layer">&quot;Arcs&quot;</param>
+                                            <param id="2" name="X">0</param>
+                                            <param id="3" name="Y">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="5347289411339311" type="arc">
+                                            <param id="0" name="Instance variable">start</param>
+                                            <param id="1" name="Value">previous</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="9730560837192321" type="arc">
+                                            <param id="0" name="Instance variable">end</param>
+                                            <param id="1" name="Value">current</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="3378831092303433" type="Function">
+                                            <param id="0" name="Name">&quot;ui.showDialog&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="1958888571788076" type="System">
+                                            <param id="0" name="Variable">arc_id</param>
+                                            <param id="1" name="Value">arc.IID</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="7396857258988108">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="2307854639750881" type="System">
+                                                    <param id="0" name="Variable">previous</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Value">current</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="6557425558649357" type="arc">
+                                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1181220348679897">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="3343386409651926" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="9341842885705122" type="arc">
+                                                    <param id="0" name="Animation">&quot;Self&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="7741110497830676">
+                                            <conditions />
+                                            <actions>
+                                                <action id="0" name="Call function" sid="983056365873604" type="Function">
+                                                    <param id="0" name="Name">&quot;state.select&quot;</param>
+                                                    <param id="1" name="Parameter {n}">-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="1707190262105639" title="Arc: Label">
+                    <sub-events>
+                        <event-block sid="2292796454117906">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="3707723378402708" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="4708956381810734" type="arc_label">
+                                    <param id="0" name="X">arc.ImagePointX(&quot;label&quot;)</param>
+                                    <param id="1" name="Y">arc.ImagePointY(&quot;label&quot;)  - arc_label.Height</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5876748738443595" type="arc_label">
+                                    <param id="0" name="Text">arc.symbols</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="9691805186853972" type="arc_label">
+                                    <param id="0" name="Width">arc_label.TextWidth + 32</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-block sid="4994636784601014">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="7378915203826598" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="488209760485838" type="System">
+                    <param id="0" name="Variable">mouse_x_old</param>
+                    <param id="1" name="Value">Mouse.X</param>
+                </action>
+                <action id="-9" name="Set value" sid="5356988970138416" type="System">
+                    <param id="0" name="Variable">mouse_y_old</param>
+                    <param id="1" name="Value">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
